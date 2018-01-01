@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TBaseSoft</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="module/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="module/html5shiv/js/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <section class="htmleaf-container">
+    <div class="landing-slider"></div>
+    <div class="tabSlider">
+      <nav class="ts-control">
+        <div class="ts-container">
+          <ul>
+            <li class="is-active"><i class="ts-icon auto"></i><span>产品 1</span></li>
+            <li><i class="ts-icon medical"></i><span>产品 2</span></li>
+            <li><i class="ts-icon food"></i><span>产品 3</span></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="ts-items">
+        <div class="ts-item is-active">
+          <div class="ts-banner"><img src="images/621.jpg" alt="alt goes here" /></div>
+          <div class="ts-container set-layout thumb-cont">
+            <div class="ts-thumbnail"> <img src="images/iphone.png" alt="alt" /> </div>
+            <div class="ts-content">
+              <div class="ts-title"> consectetur adipiscing elit </div>
+              <a href="" class="ts-btn pull-right set-icon to-right">
+              <span>Lorem ipsum dolor sit amet</span>
+              <small>Quisque eget tincidunt erat</small>
+              <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ts-item">
+          <div class="ts-banner"> <img src="images/622.jpg" alt="alt goes here" /></div>
+          <div class="ts-container set-layout thumb-cont">
+            <div class="ts-thumbnail"> <img src="images/s3.png" alt="alt" /> </div>
+            <div class="ts-content">
+            <div class="ts-title">Title</div>
+              <a href="" class="ts-btn pull-right set-icon to-right">
+              <span>Quisque eget tincidunt erat</span>
+              <small>Donec dignissim consectetur</small>
+              <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ts-item">
+          <div class="ts-banner"> <img src="images/623.jpg" alt="alt goes here" /> </div>
+          <div class="ts-container set-layout thumb-cont">
+            <div class="ts-thumbnail"> <img src="images/lumia.png" alt="alt" /> </div>
+            <div class="ts-content">
+            <div class="ts-title"> Lorem ipsum dolor sit amet </div>
+              <a href="" class="ts-btn pull-right set-icon to-right">
+              <span>Donec dignissim consectetur</span>
+              <small>Praesent at enim vel nibh</small>
+              <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="module/jquery/js/jquery.js"></script>
+  <script type="text/javascript">
+  $(function(){
+    $('a').on('click', function(){ return false; });
+    // set item banner
+    $('.ts-item').first().show();
+    $('.ts-item').each(function () {
+        var $this = $(this),
+        _imgSrc  = $this.find('.ts-banner img').attr('src');
+
+        if(_imgSrc)
+        $this.css('background-image', 'url(' + _imgSrc + ')');
+    });
+
+    $('.ts-control li').on('click', function(){
+        var  $this = $(this),
+          _index = $this.index();
+
+          $("li.is-active").removeClass("is-active");
+          $(this).addClass("is-active");
+
+          $('.ts-item.is-active').removeClass('is-active').fadeOut();
+          $('.ts-item').eq(_index).addClass('is-active').fadeIn();
+
+        return false;
+    });
+
+    var ww = $(window).width();
+  });
+  </script>
+</body>
+</html>
